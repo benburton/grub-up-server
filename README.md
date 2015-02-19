@@ -4,6 +4,8 @@ Grub Up Server is the server-side piece of a [Steel City CodeFest 2015](http://s
 to help people better discover meals provided by the CitiParks program. The project was initially cloned from Heroku's
 [template-java-spring-hibernate](https://github.com/heroku/template-java-spring-hibernate) project.
 
+You can see a live deployment at [https://grub-up-server.herokuapp.com/](https://grub-up-server.herokuapp.com/)
+
 ### Local Development Setup
 
 #### Install Maven
@@ -96,11 +98,11 @@ Using the command line app from the Heroku Toolbelt, log in:
 
 #### Check for Permissions on Project
 
-To ensure that you have rights to the `grub-up` project on Heroku, use the `heroku list` command, and check that the
-results contain the `grup-up` project:
+To ensure that you have rights to the `grub-up-server` project on Heroku, use the `heroku list` command, and check that
+the results contain the `grup-up-server` project:
 
-    heroku list | grep grub-up
-    grub-up
+    heroku list | grep grub-up-server
+    grub-up-server
 
 If this does not return anything, contact someone on the team to get collaborator access to the Heroku project.
 
