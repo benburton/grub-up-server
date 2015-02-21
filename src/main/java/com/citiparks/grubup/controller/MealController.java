@@ -25,7 +25,7 @@ public class MealController {
 		return mealService.getAllMeals();
 	}
 	
-	@RequestMapping(value="/add", method=RequestMethod.POST, consumes={"application/json"})
+	@RequestMapping(value="/", method=RequestMethod.POST, consumes={"application/json"})
 	public void addMeal(@RequestBody Meal meal, BindingResult result){
 		mealService.addMeal(meal);
 	}
