@@ -15,7 +15,7 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
 @Service
-public class LocationSeriveImpl implements LocationService {
+public class LocationServiceImpl implements LocationService {
 
 	@PersistenceContext
 	EntityManager entityManager;

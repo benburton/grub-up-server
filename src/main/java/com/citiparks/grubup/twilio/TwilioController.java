@@ -12,7 +12,7 @@ import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 
 import com.citiparks.grubup.model.Location;
-import com.citiparks.grubup.service.LocationSeriveImpl;
+import com.citiparks.grubup.service.LocationServiceImpl;
 
 public class TwilioController {
 	
@@ -23,7 +23,7 @@ public class TwilioController {
 	
 	public UserDAO users = new UserDAO();//this should be private, but I'm
 	//doing this for testing
-	private LocationSeriveImpl locService = new LocationSeriveImpl();
+	private LocationServiceImpl locService = new LocationServiceImpl();
 	
 	public void sendNearestLocations(String phoneNumber, String zipcode) throws TwilioRestException
 	{
@@ -63,5 +63,7 @@ public class TwilioController {
 			 System.out.println(message.getSid()); 
 		}
 	}
+	
+	
 	
 }

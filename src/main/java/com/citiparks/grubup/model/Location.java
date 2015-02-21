@@ -3,9 +3,6 @@ package com.citiparks.grubup.model;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
-import org.codehaus.jettison.json.JSONException;
-import org.codehaus.jettison.json.JSONObject;
-
 @Entity
 public class Location {
 
