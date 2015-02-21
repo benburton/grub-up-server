@@ -30,6 +30,11 @@ public class TwilioController {
 		if (users.hasPhoneNumber(phoneNumber))
 		{
 			String locationList = locService.getNearestLocationsAsString(zipcode).toString();
+			String zip = "^\\d{5}";
+			if (zipcode == null || zipcode.matches(zip))
+			{
+				//do stuff to get the zipcode based on the current geolocation
+			}
 			
 			List<NameValuePair> params = new ArrayList<NameValuePair>(); 
 			 params.add(new BasicNameValuePair("To", phoneNumber)); 
@@ -41,4 +46,22 @@ public class TwilioController {
 			 System.out.println(message.getSid()); 
 		}
 	}
+	
+	public void sendLocationAddress(String phoneNumber, String shortName) throws TwilioRestException
+	{
+		if (users.hasPhoneNumber(phoneNumber))
+		{
+			String address = locService.getLocationAddress(shortName);
+			
+			List<NameValuePair> params = new ArrayList<NameValuePair>(); 
+			 params.add(new BasicNameValuePair("To", phoneNumber)); 
+			 params.add(new BasicNameValuePair("From", "+14124447511")); 
+			 params.add(new BasicNameValuePair("Body", address));   
+		 
+			 MessageFactory messageFactory = client.getAccount().getMessageFactory(); 
+			 Message message = messageFactory.create(params); 
+			 System.out.println(message.getSid()); 
+		}
+	}
+	
 }

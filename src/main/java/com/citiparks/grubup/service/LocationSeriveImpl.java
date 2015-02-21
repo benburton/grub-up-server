@@ -94,6 +94,16 @@ public class LocationSeriveImpl implements LocationService {
 		
 		return s;
 	}
+	
+	public String getLocationAddress(String shortName)
+	{
+		Location loc = entityManager.find(Location.class, shortName);
+		if (loc != null)
+		{
+			return loc.getAddress();
+		}
+		else return "not found";
+	}
 
 	
 }
