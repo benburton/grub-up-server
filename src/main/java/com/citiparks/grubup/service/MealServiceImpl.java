@@ -22,6 +22,7 @@ public class MealServiceImpl implements MealService{
 		return entityManager.find(Meal.class, mealId);
 	}
 	
+	@Transactional
 	@Override
 	public void addMeal(Meal meal){
 		entityManager.persist(meal);

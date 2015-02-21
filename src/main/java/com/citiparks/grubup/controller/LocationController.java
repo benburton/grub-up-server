@@ -13,6 +13,7 @@ import com.citiparks.grubup.service.LocationService;
 
 import java.util.Map;
 
+@RequestMapping("location/")
 @Controller
 public class LocationController {
 
