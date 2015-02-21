@@ -1,5 +1,6 @@
 package com.citiparks.grubup.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.ElementCollection;
@@ -7,15 +8,15 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-//@Entity
+@Entity
 public class Meal {
 	
-	//@Id
-	//@GeneratedValue
+	@Id
+	@GeneratedValue
 	private Integer mealId;
 	
 	private String meal; //breakfast, lunch or snack
-	private List<String> mealItems;
+	private ArrayList<String> mealItems;
 	
 	public String getMeal() {
 		return meal;
@@ -34,7 +35,7 @@ public class Meal {
 	public List<String> getMealItems() {
 		return mealItems;
 	}
-	public void setMealItems(List<String> mealItems) {
+	public void setMealItems(ArrayList<String> mealItems) {
 		this.mealItems = mealItems;
 	}
 	

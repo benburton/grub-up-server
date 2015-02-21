@@ -3,7 +3,7 @@ package com.citiparks.grubup.model;
 import java.util.Date;
 import java.util.List;
 
-public class LocationMenu {
+public class LocationMeal {
 	
 	private Location location; // should this be a String representing the shortName for querying?
 	private List<Meal> meals; //all meals for the day
