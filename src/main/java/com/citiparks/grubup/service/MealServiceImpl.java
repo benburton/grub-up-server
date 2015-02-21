@@ -16,7 +16,8 @@ public class MealServiceImpl implements MealService{
 
 	@PersistenceContext
 	EntityManager entityManager;
-	 
+	
+	@Transactional
 	@Override
 	public Meal getMeal(Integer mealId){
 		return entityManager.find(Meal.class, mealId);
@@ -28,6 +29,7 @@ public class MealServiceImpl implements MealService{
 		entityManager.persist(meal);
 	}
 	
+	@Transactional
 	@Override
 	public boolean deleteMeal(Integer mealId){
 		Meal meal = entityManager.find(Meal.class, mealId);
