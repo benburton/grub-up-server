@@ -3,16 +3,14 @@ package com.citiparks.grubup.service;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.citiparks.grubup.model.Location;
-import com.citiparks.grubup.model.Person;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.criteria.CriteriaQuery;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Root;
+import com.citiparks.grubup.model.Location;
 
 @Service
 public class LocationServiceImpl implements LocationService {
@@ -27,8 +25,8 @@ public class LocationServiceImpl implements LocationService {
 	}
 
 	@Transactional
-	public boolean removeLocation(String shortName) {
-	    Location location = entityManager.find(Location.class, shortName);
+	public boolean removeLocation(Integer locationId) {
+	    Location location = entityManager.find(Location.class, locationId);
 	    if (null != location) {
 	      entityManager.remove(location);
 	      return true;
@@ -44,8 +42,8 @@ public class LocationServiceImpl implements LocationService {
 	}
 
 	@Transactional
-	public Location getLocation(String shortName) {
-		return entityManager.find(Location.class, shortName);	    
+	public Location getLocation(Integer locationId) {
+		return entityManager.find(Location.class, locationId);	    
 	}
 
 	@Transactional

@@ -1,12 +1,16 @@
 package com.citiparks.grubup.model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
 public class Location {
 
 	@Id
+	@GeneratedValue
+	private Integer locationId;
+
 	private String shortName;
 	private String fullName;
 	private String address;
@@ -16,6 +20,12 @@ public class Location {
 	private Double latitude;
 	private Double longitude;
 	
+	public Integer getLocationId() {
+		return locationId;
+	}
+	public void setLocationId(Integer locationId) {
+		this.locationId = locationId;
+	}
 	public Double getLatitude() {
 		return latitude;
 	}

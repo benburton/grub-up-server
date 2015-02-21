@@ -16,7 +16,8 @@ public class MealServiceImpl implements MealService{
 
 	@PersistenceContext
 	EntityManager entityManager;
-	 
+	
+	@Transactional
 	@Override
 	public Meal getMeal(Integer mealId){
 		return entityManager.find(Meal.class, mealId);
@@ -28,6 +29,7 @@ public class MealServiceImpl implements MealService{
 		entityManager.persist(meal);
 	}
 	
+	@Transactional
 	@Override
 	public boolean deleteMeal(Integer mealId){
 		Meal meal = entityManager.find(Meal.class, mealId);
@@ -41,17 +43,6 @@ public class MealServiceImpl implements MealService{
 	@Transactional
 	@Override
 	public List<Meal> getAllMeals() {
-		/*List<Meal> meals = new ArrayList<Meal>();
-		Meal m = new Meal();
-		m.setMeal("123");
-		ArrayList<String> mealItems = new ArrayList<String>();
-		mealItems.add("applesauce");
-		mealItems.add("bananas");
-		m.setMealItems(mealItems);
-		m.setMeal("snack");
-		meals.add(m);
-		
-		return meals;*/
 		CriteriaQuery<Meal> c = entityManager.getCriteriaBuilder().createQuery(Meal.class);
 	    c.from(Meal.class);
 	    return entityManager.createQuery(c).getResultList();

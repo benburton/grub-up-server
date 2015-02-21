@@ -1,47 +1,44 @@
 package com.citiparks.grubup.controller;
 
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.citiparks.grubup.model.Location;
 import com.citiparks.grubup.service.LocationService;
 
-import java.util.Map;
-
 @RequestMapping("location/")
-@Controller
+@RestController
 public class LocationController {
 
   @Autowired
   private LocationService locationService;
 
   @RequestMapping("/")
-  public String getAllLocations(Map<String, Object> map) {
-    map.put("location", new Location());
-    map.put("locationList", locationService.getAllLocations());
-    return "locations";
+  public List<Location> getAllLocations(Map<String, Object> map) {
+	  return locationService.getAllLocations();
   }
 
-  @RequestMapping(value = "/add", method = RequestMethod.POST)
-  public String addLocation(@ModelAttribute("location") Location location, BindingResult result) {
+  @RequestMapping(value="/", method=RequestMethod.POST, consumes={"application/json"})
+  public void addLocation(@RequestBody Location location, BindingResult result) {
 	  locationService.addLocation(location);
-    return "redirect:/locations/";
   }
 
-  @RequestMapping("/delete/{shortName}")
-  public String removeLocation(@PathVariable("shortName") String shortName) {
-	  locationService.removeLocation(shortName);
-    return "redirect:/locations/";
+  @RequestMapping(value="/{locationId}", method=RequestMethod.DELETE)
+  public boolean removeLocation(@PathVariable("locationId") Integer locationId) {
+	  return locationService.removeLocation(locationId);
   }
   
-  @RequestMapping("/{shortName}")
-  public void getLocation(@PathVariable("shortName") String shortName)
+  @RequestMapping(value="/{locationId}", method=RequestMethod.GET)
+  public Location getLocation(@PathVariable("locationId") Integer locationId)
   {
-	locationService.getLocation(shortName);	  
+	return locationService.getLocation(locationId);	  
   }
 }
