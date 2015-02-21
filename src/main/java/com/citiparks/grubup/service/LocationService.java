@@ -10,4 +10,5 @@ public interface LocationService {
 	public boolean removeLocation(Location location );
 	public List<Location> getAllLocations();
 	public Location getLocation(String shortName);
+	public List<Location> getNearestLocations(String zipcode);
 }
