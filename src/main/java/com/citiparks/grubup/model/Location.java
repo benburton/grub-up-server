@@ -3,6 +3,9 @@ package com.citiparks.grubup.model;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
+import org.codehaus.jettison.json.JSONException;
+import org.codehaus.jettison.json.JSONObject;
+
 @Entity
 public class Location {
 
@@ -15,6 +18,7 @@ public class Location {
 	private String zip;
 	private Double latitude;
 	private Double longitude;
+	private JSONObject jsonObject = new JSONObject();
 	
 	public Double getLatitude() {
 		return latitude;
@@ -66,7 +70,29 @@ public class Location {
 		this.zip = zip;
 	}
 	
+	public void createJsonObject() throws JSONException
+	{
+		jsonObject.put("shortName", shortName);
+		jsonObject.put("longName", fullName);
+		jsonObject.put("latitude", latitude);
+		jsonObject.put("longitude", longitude);
+		jsonObject.put("address", address);
+		jsonObject.put("city", city);
+		jsonObject.put("state", state);
+		jsonObject.put("zip", zip);
+		
+	}
 	
+	public JSONObject getJSONObject()
+	{
+		return jsonObject;
+	}
+	
+	public String toString()
+	{
+		return fullName + "\n" + address + "\n" + city + " "
+				+ state + " " + zip + "\n";
+	}
 	
 	
 }
