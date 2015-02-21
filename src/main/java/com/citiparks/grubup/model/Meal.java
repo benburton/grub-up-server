@@ -2,15 +2,16 @@ package com.citiparks.grubup.model;
 
 import java.util.List;
 
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-@Entity
+//@Entity
 public class Meal {
 	
-	@Id
-	@GeneratedValue
+	//@Id
+	//@GeneratedValue
 	private Integer mealId;
 	
 	private String meal; //breakfast, lunch or snack
@@ -28,6 +29,8 @@ public class Meal {
 	public void setMealId(Integer mealId) {
 		this.mealId = mealId;
 	}
+	
+	@ElementCollection
 	public List<String> getMealItems() {
 		return mealItems;
 	}
