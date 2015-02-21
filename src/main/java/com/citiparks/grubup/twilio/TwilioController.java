@@ -11,7 +11,9 @@ import com.twilio.sdk.resource.instance.Message;
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 
+import com.citiparks.grubup.controller.MealController;
 import com.citiparks.grubup.model.Location;
+import com.citiparks.grubup.model.Meal;
 import com.citiparks.grubup.service.LocationServiceImpl;
 
 public class TwilioController {
@@ -46,6 +48,27 @@ public class TwilioController {
 		{
 			String address = locService.getLocationAddress(shortName);			
 			sendMessage(phoneNumber, address);
+		}
+	}
+	
+	public void sendMenu(String phoneNumber) throws TwilioRestException
+	{
+		if (users.hasPhoneNumber(phoneNumber))
+		{
+			MealController mCtrl = new MealController();
+			List<Meal> mealList = mCtrl.getAllMeals();
+			String message = "";
+			for (int i = 0; i < mealList.size(); i++)
+			{
+				Meal m =  mealList.get(i);
+				for (String s : m.getMealItems())
+				{
+					message += s + "\n";
+				}
+				message += "\n";
+			}
+			
+			sendMessage(phoneNumber, message);
 		}
 	}
 	
