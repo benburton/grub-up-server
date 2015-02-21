@@ -5,8 +5,8 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -27,18 +27,18 @@ public class LocationController {
   }
 
   @RequestMapping(value="/", method=RequestMethod.POST, consumes={"application/json"})
-  public void addLocation(@ModelAttribute("location") Location location, BindingResult result) {
+  public void addLocation(@RequestBody Location location, BindingResult result) {
 	  locationService.addLocation(location);
   }
 
-  @RequestMapping(value="/{shortName}", method=RequestMethod.DELETE)
-  public boolean removeLocation(@PathVariable("shortName") String shortName) {
-	  return locationService.removeLocation(shortName);
+  @RequestMapping(value="/{locationId}", method=RequestMethod.DELETE)
+  public boolean removeLocation(@PathVariable("locationId") Integer locationId) {
+	  return locationService.removeLocation(locationId);
   }
   
-  @RequestMapping(value="/{shortName}", method=RequestMethod.GET)
-  public void getLocation(@PathVariable("shortName") String shortName)
+  @RequestMapping(value="/{locationId}", method=RequestMethod.GET)
+  public Location getLocation(@PathVariable("locationId") Integer locationId)
   {
-	locationService.getLocation(shortName);	  
+	return locationService.getLocation(locationId);	  
   }
 }

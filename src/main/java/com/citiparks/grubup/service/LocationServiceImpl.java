@@ -25,8 +25,8 @@ public class LocationServiceImpl implements LocationService {
 	}
 
 	@Transactional
-	public boolean removeLocation(String shortName) {
-	    Location location = entityManager.find(Location.class, shortName);
+	public boolean removeLocation(Integer locationId) {
+	    Location location = entityManager.find(Location.class, locationId);
 	    if (null != location) {
 	      entityManager.remove(location);
 	      return true;
@@ -42,8 +42,8 @@ public class LocationServiceImpl implements LocationService {
 	}
 
 	@Transactional
-	public Location getLocation(String shortName) {
-		return entityManager.find(Location.class, shortName);	    
+	public Location getLocation(Integer locationId) {
+		return entityManager.find(Location.class, locationId);	    
 	}
 
 	@Transactional
