@@ -1,5 +1,6 @@
 package com.citiparks.grubup.controller;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,25 +22,21 @@ public class LocationController {
   private LocationService locationService;
 
   @RequestMapping("/")
-  public String getAllLocations(Map<String, Object> map) {
-    map.put("location", new Location());
-    map.put("locationList", locationService.getAllLocations());
-    return "locations";
+  public List<Location> getAllLocations(Map<String, Object> map) {
+	  return locationService.getAllLocations();
   }
 
-  @RequestMapping(value = "/add", method = RequestMethod.POST)
-  public String addLocation(@ModelAttribute("location") Location location, BindingResult result) {
+  @RequestMapping(value="/", method=RequestMethod.POST, consumes={"application/json"})
+  public void addLocation(@ModelAttribute("location") Location location, BindingResult result) {
 	  locationService.addLocation(location);
-    return "redirect:/locations/";
   }
 
-  @RequestMapping("/delete/{shortName}")
-  public String removeLocation(@PathVariable("shortName") String shortName) {
-	  locationService.removeLocation(shortName);
-    return "redirect:/locations/";
+  @RequestMapping(value="/{shortName}", method=RequestMethod.DELETE)
+  public boolean removeLocation(@PathVariable("shortName") String shortName) {
+	  return locationService.removeLocation(shortName);
   }
   
-  @RequestMapping("/{shortName}")
+  @RequestMapping(value="/{shortName}", method=RequestMethod.GET)
   public void getLocation(@PathVariable("shortName") String shortName)
   {
 	locationService.getLocation(shortName);	  
