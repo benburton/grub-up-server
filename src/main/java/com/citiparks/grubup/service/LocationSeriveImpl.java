@@ -3,16 +3,14 @@ package com.citiparks.grubup.service;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.citiparks.grubup.model.Location;
-import com.citiparks.grubup.model.Person;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.criteria.CriteriaQuery;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Root;
+import com.citiparks.grubup.model.Location;
 
 @Service
 public class LocationSeriveImpl implements LocationService {

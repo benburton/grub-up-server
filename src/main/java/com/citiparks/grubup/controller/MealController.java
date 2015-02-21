@@ -19,13 +19,11 @@ public class MealController {
 	@Autowired
 	MealService mealService;
 	
-	//@ResponseBody
 	@RequestMapping(value="/", method=RequestMethod.GET)
 	public List<Meal> getAllMeals(){
 		return mealService.getAllMeals();
 	}
 	
-	//@ResponseBody
 	@RequestMapping(value="/add", method=RequestMethod.POST, consumes={"application/json"})
 	public void addMeal(@RequestBody Meal meal, BindingResult result){
 		mealService.addMeal(meal);
