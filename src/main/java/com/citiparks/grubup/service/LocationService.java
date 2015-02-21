@@ -7,7 +7,7 @@ import com.citiparks.grubup.model.Location;
 public interface LocationService {
 
 	public void addLocation(Location location);
-	public boolean removeLocation(Location location );
+	public boolean removeLocation(Integer id );
 	public List<Location> getAllLocations();
 	public Location getLocation(String shortName);
 }
