@@ -3,6 +3,8 @@ package com.citiparks.grubup.twilio;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import com.twilio.sdk.TwilioRestClient;
 import com.twilio.sdk.TwilioRestException;
 import com.twilio.sdk.resource.factory.MessageFactory;
@@ -26,6 +28,21 @@ public class TwilioController {
 	public UserDAO users = new UserDAO();//this should be private, but I'm
 	//doing this for testing
 	private LocationServiceImpl locService = new LocationServiceImpl();
+	
+	public void routeRequest(HttpServletRequest request) throws TwilioRestException
+	{
+		String phoneNumber = request.getParameter("From");
+		String body = request.getParameter("Body");
+		
+		if (body == "menu")
+		{
+			sendMenu(phoneNumber);
+		}
+		else //we'll do sendAddress later
+		{
+			sendNearestLocations(phoneNumber, body);
+		}
+	}
 	
 	public void sendNearestLocations(String phoneNumber, String zipcode) throws TwilioRestException
 	{
