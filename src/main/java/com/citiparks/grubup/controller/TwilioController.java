@@ -43,7 +43,7 @@ public class TwilioController {
 	 	}else if(messageReceived.equalsIgnoreCase("snack")){
 	 		twlMessage = new Message("received snack");
 	 	}else if(messageReceived.matches(zip)){
-	 		List<Location> locations = locationService.getNearestLocations(messageReceived);
+	 		List<Location> locations = locationService.getLocationsByZipcode(messageReceived);
 	 		StringBuilder str = new StringBuilder();
 	 		
 	 		for(Location loc: locations){
