@@ -8,6 +8,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+/**
+ * Represents a meal
+ * 
+ * @author tonyaedmonds
+ *
+ */
 @Entity
 public class Meal {
 	
@@ -15,15 +21,9 @@ public class Meal {
 	@GeneratedValue
 	private Integer mealId;
 	
-	private String meal; //breakfast, lunch or snack
 	private ArrayList<String> mealItems;
+	private String meal;
 	
-	public String getMeal() {
-		return meal;
-	}
-	public void setMeal(String meal) {
-		this.meal = meal;
-	}
 	public Integer getMealId() {
 		return mealId;
 	}
@@ -38,6 +38,11 @@ public class Meal {
 	public void setMealItems(ArrayList<String> mealItems) {
 		this.mealItems = mealItems;
 	}
+	public String getMeal() {
+		return meal;
+	}
+	public void setMeal(String meal) {
+		this.meal = meal;
+	}
 	
-
 }

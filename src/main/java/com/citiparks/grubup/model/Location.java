@@ -1,9 +1,15 @@
 package com.citiparks.grubup.model;
 
+import java.util.ArrayList;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-
+/**
+ * Represents a food location
+ * @author tonyaedmonds
+ *
+ */
 @Entity
 public class Location {
 
@@ -19,6 +25,9 @@ public class Location {
 	private String zip;
 	private Double latitude;
 	private Double longitude;
+	private ArrayList<MealTime> mealTimes;
+	private ArrayList<String> days;
+
 	
 	public Integer getLocationId() {
 		return locationId;
@@ -76,6 +85,18 @@ public class Location {
 		this.zip = zip;
 	}
 	
+	public ArrayList<MealTime> getMealTimes() {
+		return mealTimes;
+	}
+	public void setMealTimes(ArrayList<MealTime> mealTimes) {
+		this.mealTimes = mealTimes;
+	}
+	public ArrayList<String> getDays() {
+		return days;
+	}
+	public void setDays(ArrayList<String> days) {
+		this.days = days;
+	}
 	public String toString()
 	{
 		return fullName + "\n" + address + "\n" + city + " "
