@@ -21,8 +21,8 @@ import com.citiparks.grubup.service.LocationServiceImpl;
 public class TwilioController {
 	
 	// Find your Account Sid and Token at twilio.com/user/account
-	public static final String ACCOUNT_SID = "ACa19f47e4ab0caf7db5a87d26f77aa251";
-	public static final String AUTH_TOKEN = "dbdff83da5bc9519557171965f061bdc";
+	public static final String ACCOUNT_SID = "something";
+	public static final String AUTH_TOKEN = "something";
 	TwilioRestClient client = new TwilioRestClient(ACCOUNT_SID, AUTH_TOKEN);
 	
 	public UserDAO users = new UserDAO();//this should be private, but I'm
@@ -54,7 +54,7 @@ public class TwilioController {
 				//do stuff to get the zipcode based on the current geolocation
 			}
 			
-			String locationList = locService.getNearestLocationsAsString(zipcode).toString();
+			String locationList = locService.getLocationsByZipcodeAsString(zipcode).toString();
 			sendMessage(phoneNumber, locationList);
 		}
 	}
