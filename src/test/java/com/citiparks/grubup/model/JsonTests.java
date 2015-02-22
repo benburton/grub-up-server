@@ -65,6 +65,8 @@ public class JsonTests {
 		
 		Gson gson = new Gson();
 		System.out.println(gson.toJson(m1));
+		System.out.println(gson.toJson(m2));
+		System.out.println(gson.toJson(m3));
 		
 	}
 	
@@ -111,7 +113,7 @@ public class JsonTests {
 		snack.setHours(hours);
 		mealTimes.add(snack);
 		
-		loc.setMealTimes(mealTimes);
+	//	loc.setMealTimes(mealTimes);
 		loc.setDays(mon_thurs);
 
 		Gson gson = new Gson();

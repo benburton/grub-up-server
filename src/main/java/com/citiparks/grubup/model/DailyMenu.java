@@ -1,10 +1,10 @@
 package com.citiparks.grubup.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.databind.jsonFormatVisitors.JsonFormatTypes;
 
 /**
  * represents the daily menu (breakfast, lunch, snack) for all locations
@@ -12,7 +12,12 @@ import com.fasterxml.jackson.databind.jsonFormatVisitors.JsonFormatTypes;
  * @author tonyaedmonds
  *
  */
-public class DailyMenu {
+public class DailyMenu implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	//TODO: get date formatted correctly
 	@JsonFormat(pattern = "yyyy-MM-dd")
 	private Date date;

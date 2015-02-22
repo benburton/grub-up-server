@@ -1,6 +1,7 @@
 package com.citiparks.grubup.model;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -25,7 +26,8 @@ public class Location {
 	private String zip;
 	private Double latitude;
 	private Double longitude;
-	private ArrayList<MealTime> mealTimes;
+
+//	private ArrayList<MealTime> mealTimes;
 	private ArrayList<String> days;
 
 	
@@ -84,13 +86,15 @@ public class Location {
 	public void setZip(String zip) {
 		this.zip = zip;
 	}
-	
-	public ArrayList<MealTime> getMealTimes() {
+/*	
+	public List<MealTime> getMealTimes() {
 		return mealTimes;
 	}
 	public void setMealTimes(ArrayList<MealTime> mealTimes) {
 		this.mealTimes = mealTimes;
 	}
+	*/
+	
 	public ArrayList<String> getDays() {
 		return days;
 	}
