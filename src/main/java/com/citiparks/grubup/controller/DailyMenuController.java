@@ -22,6 +22,7 @@ public class DailyMenuController {
 	  public DailyMenu getDailyMenu(@PathVariable Date date) {
 		  return dailyMenuService.getMenu(date);
 	  }
+	 
 
 
 }
