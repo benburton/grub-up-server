@@ -35,6 +35,7 @@ public class TwilioController {
 	 	String zip = "\\d{5}";
 	 	
 	 	//route expected commands
+	 	//TODO: HELP and daily menus
 	 	if(messageReceived.equalsIgnoreCase("lunch")){
 			twlMessage = new Message("received lunch");
 	 	}else if(messageReceived.equalsIgnoreCase("breakfast")){

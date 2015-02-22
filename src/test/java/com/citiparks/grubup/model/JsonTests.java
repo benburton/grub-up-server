@@ -2,7 +2,6 @@ package com.citiparks.grubup.model;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -81,6 +80,7 @@ public class JsonTests {
 		loc.setShortName("OAKHILL");
 		loc.setState("PA");
 		loc.setZip("15213");
+		loc.setDays(mon_thurs);
 		
 		ArrayList<MealTime> mealTimes = new ArrayList<MealTime>();
 		MealTime bk = new MealTime();
@@ -113,7 +113,7 @@ public class JsonTests {
 		snack.setHours(hours);
 		mealTimes.add(snack);
 		
-	//	loc.setMealTimes(mealTimes);
+		loc.setMealTimes(mealTimes);
 		loc.setDays(mon_thurs);
 
 		Gson gson = new Gson();

@@ -14,7 +14,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
  * Represents a meal time (eg. breakfast, lunch, dinner) and the actual hours 
  * of the specified meal.
  */
-//@Entity
+@Entity
 public class MealTime implements Serializable{
 
 	/**
@@ -23,14 +23,15 @@ public class MealTime implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	//@JsonIgnore
-	//@Id
-	//@GeneratedValue
+	@Id
+	@GeneratedValue
 	private Integer mealTimeId;
 	
 	private String description; //breakfast, lunch or dinner 
 	private ArrayList<String> hours;
 	
-	private Location location;
+	//foreign key
+	private Integer locationId;
 	
 	public String getDescription() {
 		return description;
@@ -44,14 +45,12 @@ public class MealTime implements Serializable{
 	public void setHours(ArrayList<String> hours) {
 		this.hours = hours;
 	}
-	public Location getLocation() {
-		return location;
+	public Integer getLocationId() {
+		return locationId;
 	}
-	public void setLocation(Location location) {
-		this.location = location;
+	public void setLocationId(Integer locationId) {
+		this.locationId = locationId;
 	}
-	
-	
 	
 	
 }

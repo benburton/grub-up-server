@@ -3,6 +3,8 @@ package com.citiparks.grubup.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -26,8 +28,8 @@ public class Location {
 	private String zip;
 	private Double latitude;
 	private Double longitude;
-
-//	private ArrayList<MealTime> mealTimes;
+	
+	private ArrayList<MealTime> mealTimes;
 	private ArrayList<String> days;
 
 	
@@ -86,14 +88,16 @@ public class Location {
 	public void setZip(String zip) {
 		this.zip = zip;
 	}
-/*	
+
+	@Column
+	@ElementCollection(targetClass=MealTime.class)
 	public List<MealTime> getMealTimes() {
 		return mealTimes;
 	}
 	public void setMealTimes(ArrayList<MealTime> mealTimes) {
 		this.mealTimes = mealTimes;
 	}
-	*/
+	
 	
 	public ArrayList<String> getDays() {
 		return days;
