@@ -51,7 +51,14 @@ public class TwilioController {
 	 		}
 	 		twlMessage = new Message(str.toString());
 	 		
-	 	}else{
+	 	}
+	 	else if (messageReceived.equalsIgnoreCase("help"))
+	 	{
+	 		twlMessage = new Message("Text 'breakfast', 'lunch', or 'snack' to receive that menu."
+	 				+ "  Text a zipcode to receive all locations in that zipcode" +
+	 				"  Text 'stop' to unsubscribe.");
+	 	}
+	 	else{
 	 		twlMessage = new Message("Command not found");
 	 	}
 	 	//TODO: it is only returning ONE location!!! FIX ME
