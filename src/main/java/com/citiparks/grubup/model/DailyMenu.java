@@ -4,7 +4,13 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+import org.codehaus.jackson.map.annotate.JsonSerialize;
+
+import com.citiparks.grubup.serializers.DateSerializer;
 
 /**
  * represents the daily menu (breakfast, lunch, snack) for all locations
@@ -12,18 +18,22 @@ import com.fasterxml.jackson.annotation.JsonFormat;
  * @author tonyaedmonds
  *
  */
+@Entity
 public class DailyMenu implements Serializable{
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	//TODO: get date formatted correctly
-	@JsonFormat(pattern = "yyyy-MM-dd")
+	@GeneratedValue
+	@Id
+	private Integer dailyMenuId;
+
 	private Date date;
 	private ArrayList<Meal> meals;
 	private String hotOrCold;
 	
+	@JsonSerialize(using=DateSerializer.class)
 	public Date getDate() {
 		return date;
 	}

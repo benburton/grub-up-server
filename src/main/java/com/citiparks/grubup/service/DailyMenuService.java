@@ -8,6 +8,7 @@ import com.citiparks.grubup.model.Meal;
 public interface DailyMenuService {
 
 	public DailyMenu getMenu(Date date);
+	public void addDailyMenu(DailyMenu menu);
 	public Meal getBreakfast();
 	public Meal getLunch();
 	public Meal getSnack();

@@ -72,12 +72,12 @@ public class JsonTests {
 	@Test
 	public void locationJSON(){
 		Location loc = new Location();
-		loc.setAddress("100 Hyman Place");
+		loc.setAddress("100 Frankston Avenue");
 		loc.setCity("Pittsburgh");
-		loc.setFullName("Oak Hill Community Center");
+		loc.setFullName("Homewood YMCA");
 		loc.setLatitude(34.032923);
 		loc.setLongitude(89.323243);
-		loc.setShortName("OAKHILL");
+		loc.setShortName("HOMEWOODY");
 		loc.setState("PA");
 		loc.setZip("15213");
 		loc.setDays(mon_thurs);

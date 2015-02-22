@@ -1,5 +1,6 @@
 package com.citiparks.grubup.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,8 +16,13 @@ import javax.persistence.Id;
  *
  */
 @Entity
-public class Meal {
+public class Meal implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue
 	private Integer mealId;

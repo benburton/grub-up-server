@@ -20,6 +20,12 @@ public class DailyMenuServiceImpl implements DailyMenuService {
 	
 	@Transactional
 	@Override
+	public void addDailyMenu(DailyMenu menu){
+		entityManager.persist(menu);
+	}
+	
+	@Transactional
+	@Override
 	public DailyMenu getMenu(Date date) {
 		return entityManager.find(DailyMenu.class, date);	    
 

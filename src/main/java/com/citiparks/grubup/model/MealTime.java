@@ -22,7 +22,6 @@ public class MealTime implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 
-	//@JsonIgnore
 	@Id
 	@GeneratedValue
 	private Integer mealTimeId;
@@ -31,6 +30,7 @@ public class MealTime implements Serializable{
 	private ArrayList<String> hours;
 	
 	//foreign key
+	@JsonIgnore
 	private Integer locationId;
 	
 	public String getDescription() {
