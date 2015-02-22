@@ -47,7 +47,7 @@ public class LocationServiceImpl implements LocationService {
 	}
 
 	@Transactional
-	public List<Location> getNearestLocations(String zipcode) {
+	public List<Location> getLocationsByZipcode(String zipcode) {
 		//CriteriaQuery<Location> c = entityManager.getCriteriaBuilder().createQuery(Location.class);
 	    //todo:  actually do a query and return that
 		Location someLocation = new Location();
@@ -79,9 +79,9 @@ public class LocationServiceImpl implements LocationService {
 
 	}
 	
-	public String getNearestLocationsAsString(String zipcode)
+	public String getLocationsByZipcodeAsString(String zipcode)
 	{
-		List<Location> theList = getNearestLocations(zipcode);
+		List<Location> theList = getLocationsByZipcode(zipcode);
 		
 		String s = "";
 		for (int i = 0; i < theList.size(); i++)
